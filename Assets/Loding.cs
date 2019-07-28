@@ -22,6 +22,7 @@ public class Loding : MonoBehaviour
 
     /// <summary>
     /// 获取单例
+    /// 测试
     /// </summary>
     /// <returns></returns>
     public static Loding GetInstance()
@@ -41,7 +42,7 @@ public class Loding : MonoBehaviour
 
     /// <summary>
     /// QQ用户信息
-    /// 
+    /// sada asda sd asd a s
     /// 说明：我只用到了四个属性，所以构造器只写了四个，如果用到更多可以自行增加
     /// </summary>
     public class QQuserInfo
