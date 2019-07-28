@@ -4,6 +4,7 @@ using UnityEngine;
 using cn.sharesdk.unity3d;
 using UnityEngine.UI;
 using LitJson;
+using System.IO;
 
 public class Loding : MonoBehaviour
 {
@@ -91,7 +92,6 @@ public class Loding : MonoBehaviour
 
     void Start()
     {
-        print(Application.streamingAssetsPath);
         //获取ShareSDK
         shareSdk = GetComponent<ShareSDK>();
         shareSdk.shareHandler = ShareResultHandler;
@@ -131,18 +131,16 @@ public class Loding : MonoBehaviour
         content.SetImageUrl(
             "https://www.gamersky.com/showimage/id_gamersky.shtml?http://img1.gamersky.com/image2019/07/20190725_ls_red_141_2/gamersky_042origin_083_2019725182972C.jpg");
         content.SetShareType(ContentType.Image);
-//        shareSdk.ShareContent(PlatformType.QQ, content);
-        shareSdk.ShowPlatformList(null, content, 100, 100);
+        shareSdk.ShareContent(PlatformType.QQ, content);
+//        shareSdk.ShowPlatformList(null, content, 100, 100);
     }
 
     public void fenxiang_WX()
     {
         ShareContent content = new ShareContent();
+        content.SetText("文本");
+        content.SetImagePath("/Snapseed/1.jpep");
         content.SetTitle("标题");
-        content.SetText("内容");
-        content.SetImageUrl(
-            "https://www.gamersky.com/showimage/id_gamersky.shtml?http://img1.gamersky.com/image2019/07/20190725_ls_red_141_2/gamersky_042origin_083_2019725182972C.jpg");
-        content.SetUrl("");
         content.SetShareType(ContentType.Image);
         shareSdk.ShareContent(PlatformType.WeChat, content);
     }
@@ -165,6 +163,7 @@ public class Loding : MonoBehaviour
                 break;
         }
     }
+
 
     /// <summary>
     /// 授权回掉
